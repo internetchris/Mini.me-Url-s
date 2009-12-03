@@ -29,7 +29,7 @@ class MiniMeUrls < ActiveRecord::Base
 end
 
 get '/' do
-  # Form for entering a fatty URL
+  # Form for entering a long URL
   <<-end_form
   <h1>Mini.me URLs!</h1>
   <form method='post'>
