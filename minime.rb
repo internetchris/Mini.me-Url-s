@@ -55,7 +55,7 @@ post '/' do
 #### Set the A Value #####
 
   if @b_value == 61
-    if @a < 61
+    if @a_value < 61
     @a = @a_value +1
     else
       @a = 61
@@ -65,7 +65,7 @@ post '/' do
 #### Set the B Value #####
 
   if @c_value == 61
-    if @b < 61
+    if @b_value < 61
     @b = @b_value +1
     else
     @b = 61
@@ -75,7 +75,7 @@ post '/' do
 
 
   if @d_value == 61
-  if @c < 61
+  if @c_value < 61
     @c = @c_value +1
   else
     @c = 61
