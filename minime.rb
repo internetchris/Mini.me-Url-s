@@ -8,6 +8,10 @@ require 'active_record'
 
  
 ## Setup
+## Your Mysql Database(mini_url) needs two tables (mini_me_urls and iterations)
+# Table mini_me_urls(id, :string url, :string mini_key)
+# Table iterations(id, :integer a, :integer b, :integer c, :integer d)
+
 
 ActiveRecord::Base.establish_connection(
   :adapter  => "mysql",
