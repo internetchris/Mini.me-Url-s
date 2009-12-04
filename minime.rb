@@ -5,8 +5,9 @@ require 'rubygems'
 require 'sinatra'
 require 'sequel'
 require 'active_record'
+require 'erb'
 
- 
+
 ## Setup
 ## Your Mysql Database(mini_url) needs two tables (mini_me_urls and iterations)
 # Table mini_me_urls(id, :string url, :string mini_key)
@@ -33,13 +34,21 @@ class MiniMeUrls < ActiveRecord::Base
 end
 
 get '/' do
+
   # Form for entering a long URL
   <<-end_form
-  <h1>Mini.me URLs!</h1>
+  <body style="background-color:black">
+<center>
+<div style="margin-top:200px">
+  <h1 style="color:white">Mini.me URLs!</h1>
   <form method='post'>
     <input type="text" name="url">
-    <input type="submit" value="Mini.me It!">
+<input type="submit" value="Mini.me It!"><br><br>
+<em style="color:white">include http:// in your url</em>
   </form>
+</div>
+</center>
+</body>
   end_form
 end
 
@@ -115,8 +124,19 @@ end
 
   mini_url = @mcreate.mini_key
   url = request.url + mini_url.to_s
-  "Your Mini.me URL is: <a href='#{url}'>#{url}</a>"
-   
+
+
+
+   <<-end_form
+  <body style="background-color:black">
+<center>
+<div style="margin-top:200px">
+  <h1 style="color:white">Your shiny new URL!</h1>
+ <a style="color:white;font-size:20px" href='#{url}'>#{url}</a>
+</div>
+</center>
+</body>
+  end_form
 end
 
 get '/:mini_id' do
